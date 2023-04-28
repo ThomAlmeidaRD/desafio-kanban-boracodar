@@ -1,7 +1,7 @@
-<h1 align="center"> Um Kanban </h1>
+<h1 align="center"> version - um kanban que evolui </h1>
 
 <p align="center">
-<a href="https://www.rocketseat.com.br/boracodar">#boraCodar</a> são desafios semanais, promovido pela Rocketseat para ensino de tecnologias WEB. <br/>
+Essa interface foi clonda diretamente da série <a href="https://www.rocketseat.com.br/boracodar">#boraCodar</a>, que são desafios semanais, promovido pela Rocketseat para ensino de tecnologias WEB. Meu foco aqui foi deixar o layout com a minha cara e design e incluir novas funcionalidades ao projeto. <br/>
 </p>
 
 <p align="center">
