@@ -1,0 +1,59 @@
+.members {
+    padding: 10px;
+}
+
+.members img {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
+#first-img {
+    position: relative;
+    left: 20px;
+    box-shadow: 4px 3px 5px #000000;
+}
+
+.card-creator {
+    top: 10px;
+    width: 90%;
+    margin-top: 15px;
+}
+
+.card-creator img {
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 22px;
+    right: 24px;
+    box-shadow: 1px 1px 5px #000000;
+}
+
+.count {
+    padding: 4px;
+    background-color: #7d33fc;
+    border-radius: 7px;
+    margin-left: 10px;
+}
+
+p.urg {
+    border: 1px solid #333;
+    width: 60px;
+    text-align: center;
+    border-radius: 4px;
+    background: #eee;
+    color: #333 !important;
+}
+
+.leve {
+    background-color: rgb(120, 221, 106) !important;
+}
+
+.media {
+    background-color: rgb(255, 241, 43) !important;
+}
+
+.alta {
+    background-color: rgb(255, 86, 86) !important;
+}
