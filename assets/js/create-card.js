@@ -97,4 +97,82 @@ btnCreateCard.addEventListener('click', function() {
 
     modalCreateCard.style.display = 'none'
 
+    var jsonCard = {
+        title: txtTitle.value,
+        desc: txtDescript.value,
+        urgency: selectUrgency.value,
+        img: card_img.src,
+        col: 1
+    }
+
+
+    localStorage.setItem((localStorage.length), JSON.stringify(jsonCard))
+
 })
+
+
+
+
+function loadCards() {
+
+    for (var i = 0; i < localStorage.length; i++) {
+
+        console.log(JSON.parse(localStorage.getItem(i)).desc)
+
+        var card = document.createElement('div')
+        var card_title = document.createElement('h3')
+        var card_descript = document.createElement('p')
+        var card_section = document.createElement('section')
+        var card_img = document.createElement('img')
+        var card_alert = document.createElement('p')
+
+        card_title.innerText = JSON.parse(localStorage.getItem(i)).title
+        card_descript.innerText = JSON.parse(localStorage.getItem(i)).desc
+        card_img.src = JSON.parse(localStorage.getItem(i)).img
+        card_alert.innerText = JSON.parse(localStorage.getItem(i)).urgency
+
+
+        card.appendChild(card_title)
+        card.appendChild(card_descript)
+        card.appendChild(card_section)
+        card_section.appendChild(card_img)
+        card_section.appendChild(card_alert)
+
+        card.classList.add('card')
+        card_section.classList.add('card-creator')
+        card_alert.classList.add('urg')
+
+        //carregar urgencia
+        if (JSON.parse(localStorage.getItem(i)).urgency == 1) {
+            card_alert.innerText = 'Leve'
+            card_alert.classList.add('leve')
+        } else if (JSON.parse(localStorage.getItem(i)).urgency == 2) {
+            card_alert.innerText = 'Média'
+            card_alert.classList.add('media')
+        } else {
+            card_alert.innerText = 'Alta'
+            card_alert.classList.add('alta')
+        }
+
+        //carregar na coluna
+        if (JSON.parse(localStorage.getItem(i)).col == 1) {
+            colunaToDo.appendChild(card)
+        } else if (JSON.parse(localStorage.getItem(i)).col == 2) {
+            colunaDoing.appendChild(card)
+        } else {
+            colunaDone.appendChild(card)
+        }
+
+        card.addEventListener('click', function() {
+            colunaDoing.appendChild(card)
+        })
+
+        card.addEventListener('dblclick', function() {
+            colunaDone.appendChild(card)
+        })
+
+
+
+    }
+
+}

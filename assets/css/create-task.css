@@ -114,3 +114,7 @@ select {
     top: 20px;
     cursor: pointer;
 }
+
+option {
+    color: #000;
+}

@@ -1,0 +1,8 @@
+[{
+    "id": "0",
+    "title": "Card vindo do JSON",
+    "desc": "este card foi criado no arquivo cards.json",
+    "urgency": "Média",
+    "img": "https://i.pinimg.com/564x/07/d0/f8/07d0f8c0b3535422fc0b48f276b3c996.jpg",
+    "col": "1"
+}]
