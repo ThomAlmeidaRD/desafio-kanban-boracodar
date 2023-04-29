@@ -1,6 +1,7 @@
 var colunaToDo = document.getElementById('colunaToDo')
 var colunaDoing = document.getElementById('colunaDoing')
 var colunaDone = document.getElementById('colunaDone')
+var trashCollum = document.getElementById('trashCollum')
 
 var user_img_1 = document.getElementById('first-img')
 var user_img_2 = document.getElementById('user-2')
@@ -51,6 +52,10 @@ btnCreateCard.addEventListener('click', function() {
     var card_section = document.createElement('section')
     var card_img = document.createElement('img')
     var card_alert = document.createElement('p')
+    var card_remove = document.createElement('ion-icon')
+    card_remove.name = 'trash-outline'
+    card_remove.style.color = '#fff'
+
 
     card_title.innerText = txtTitle.value
     card_descript.innerText = txtDescript.value
@@ -84,20 +89,24 @@ btnCreateCard.addEventListener('click', function() {
     card.classList.add('card')
     card_section.classList.add('card-creator')
 
+    //eventos
+    card.onclick = function(card) {
+        colunaDoing.appendChild(this)
+    }
 
-    card.addEventListener('click', function() {
-        colunaDoing.appendChild(card)
-    })
+    card.ondblclick = function(card) {
+        colunaDone.appendChild(this)
+    }
 
-    card.addEventListener('dblclick', function() {
-        colunaDone.appendChild(card)
-    })
+
+
 
     colunaToDo.appendChild(card)
 
     modalCreateCard.style.display = 'none'
 
     var jsonCard = {
+        id: localStorage.length + 1,
         title: txtTitle.value,
         desc: txtDescript.value,
         urgency: selectUrgency.value,
@@ -117,7 +126,7 @@ function loadCards() {
 
     for (var i = 0; i < localStorage.length; i++) {
 
-        console.log(JSON.parse(localStorage.getItem(i)).desc)
+        console.log(JSON.parse(localStorage.getItem(i)).id)
 
         var card = document.createElement('div')
         var card_title = document.createElement('h3')
@@ -125,6 +134,9 @@ function loadCards() {
         var card_section = document.createElement('section')
         var card_img = document.createElement('img')
         var card_alert = document.createElement('p')
+        var card_remove = document.createElement('ion-icon')
+        var card_play = document.createElement('ion-icon')
+        var cardID = JSON.parse(localStorage.getItem(i)).id
 
         card_title.innerText = JSON.parse(localStorage.getItem(i)).title
         card_descript.innerText = JSON.parse(localStorage.getItem(i)).desc
@@ -137,10 +149,17 @@ function loadCards() {
         card.appendChild(card_section)
         card_section.appendChild(card_img)
         card_section.appendChild(card_alert)
+        card.appendChild(card_remove)
+        card.appendChild(card_play)
 
         card.classList.add('card')
         card_section.classList.add('card-creator')
         card_alert.classList.add('urg')
+        card_remove.name = 'trash-outline'
+        card_remove.style.color = '#fff'
+        card_play.name = 'play'
+        card_play.style.color = '#fff'
+        card_play.classList.add('playTask')
 
         //carregar urgencia
         if (JSON.parse(localStorage.getItem(i)).urgency == 1) {
@@ -163,13 +182,28 @@ function loadCards() {
             colunaDone.appendChild(card)
         }
 
-        card.addEventListener('click', function() {
-            colunaDoing.appendChild(card)
-        })
+        //eventos
 
-        card.addEventListener('dblclick', function() {
-            colunaDone.appendChild(card)
-        })
+        card_remove.onclick = function(card) {
+            var cardParent = this.parentNode
+            cardParent.style.display = 'none'
+            trashCollum.appendChild(cardParent)
+        }
+
+        card_play.onclick = function(card) {
+
+            var cardParent = this.parentNode
+            if (this.name == 'checkmark-done-circle-sharp') {
+                colunaDone.appendChild(cardParent)
+                this.style.color = 'springgreen'
+            } else {
+                colunaDoing.appendChild(cardParent)
+                this.name = 'checkmark-done-circle-sharp'
+
+            }
+
+        }
+
 
 
 

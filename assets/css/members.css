@@ -15,9 +15,18 @@
 }
 
 .card-creator {
-    top: 10px;
     width: 90%;
-    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 25px;
+}
+
+.card ion-icon {
+    position: relative;
+    font-size: 25px;
+    bottom: 1px;
+    margin-left: 30%;
 }
 
 .card-creator img {
@@ -25,8 +34,8 @@
     height: 28px;
     border-radius: 100%;
     position: absolute;
-    bottom: 22px;
-    right: 24px;
+    bottom: 0px;
+    left: 100%;
     box-shadow: 1px 1px 5px #000000;
 }
 
@@ -56,4 +65,8 @@ p.urg {
 
 .alta {
     background-color: rgb(255, 86, 86) !important;
+}
+
+.trash {
+    display: none;
 }
