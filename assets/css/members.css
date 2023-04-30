@@ -24,9 +24,9 @@
 
 .card ion-icon {
     position: relative;
-    font-size: 25px;
+    font-size: 30px;
     bottom: 1px;
-    margin-left: 30%;
+    margin-left: 75%;
 }
 
 .card-creator img {
@@ -34,7 +34,7 @@
     height: 28px;
     border-radius: 100%;
     position: absolute;
-    bottom: 0px;
+    bottom: -3px;
     left: 100%;
     box-shadow: 1px 1px 5px #000000;
 }
