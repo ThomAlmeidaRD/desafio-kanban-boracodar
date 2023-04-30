@@ -102,7 +102,7 @@ btnCreateCard.addEventListener('click', function() {
     card.appendChild(card_section)
     card_section.appendChild(card_img)
     card_section.appendChild(card_alert)
-    card.appendChild(card_remove)
+        //card.appendChild(card_remove)
     card.appendChild(card_play)
     card.appendChild(cardID_element)
 
