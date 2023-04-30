@@ -70,3 +70,18 @@ p.urg {
 .trash {
     display: none;
 }
+
+h1 ion-icon {
+    position: relative;
+    right: -9px;
+    top: 2px;
+}
+
+h1 {
+    position: relative;
+    left: -17px;
+}
+
+nav {
+    padding-left: 2em !important;
+}
