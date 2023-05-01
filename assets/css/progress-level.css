@@ -1,0 +1,34 @@
+.progress-level {
+    padding: 10px;
+    margin-right: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-level p {
+    margin-right: 10px;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #7d33fc;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+progress::-webkit-progress-value {
+    background-color: #7d33fc !important;
+    border-radius: 20px;
+}
+
+.progress-level progress {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #414141;
+    border-radius: 20px;
+}

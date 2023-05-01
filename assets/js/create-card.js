@@ -21,6 +21,72 @@ var countToDo = document.getElementById('countToDo')
 var countDoing = document.getElementById('countDoing')
 var countDone = document.getElementById('countDone')
 
+var txtFilter = document.getElementById('txtFilter')
+txtFilter.addEventListener('input', filterCards)
+
+function filterCards() {
+
+    var cards_in_todo = colunaToDo.querySelectorAll('.card h3')
+    var cards_in_doing = colunaDoing.querySelectorAll('.card h3')
+    var cards_in_done = colunaDone.querySelectorAll('.card h3')
+
+    if (txtFilter.value != '') {
+
+        for (card of cards_in_todo) {
+
+            var title = card.textContent.toLowerCase()
+            var filtered_text = txtFilter.value.toLowerCase()
+
+            if (!title.includes(filtered_text)) {
+                var cardParent = card.parentNode
+                cardParent.style.display = 'none'
+            }
+        }
+
+        for (card of cards_in_doing) {
+
+            var title = card.textContent.toLowerCase()
+            var filtered_text = txtFilter.value.toLowerCase()
+
+            if (!title.includes(filtered_text)) {
+                var cardParent = card.parentNode
+                cardParent.style.display = 'none'
+            }
+        }
+
+        for (card of cards_in_done) {
+
+            var title = card.textContent.toLowerCase()
+            var filtered_text = txtFilter.value.toLowerCase()
+
+            if (!title.includes(filtered_text)) {
+                var cardParent = card.parentNode
+                cardParent.style.display = 'none'
+            }
+        }
+
+
+    } else {
+
+        for (var card of cards_in_todo) {
+            var cardParent = card.parentNode
+            cardParent.style.display = 'block'
+        }
+
+        for (var card of cards_in_doing) {
+            var cardParent = card.parentNode
+            cardParent.style.display = 'block'
+        }
+
+        for (var card of cards_in_done) {
+            var cardParent = card.parentNode
+            cardParent.style.display = 'block'
+        }
+
+    }
+}
+
+
 
 var img1 = 'https://i.pinimg.com/280x280_RS/67/84/49/678449c80dbe78adf4ad7c8d01a18e30.jpg'
 var img2 = 'https://i.pinimg.com/564x/07/d0/f8/07d0f8c0b3535422fc0b48f276b3c996.jpg'
@@ -72,8 +138,6 @@ btnCreateCard.addEventListener('click', function() {
 
     card_remove.name = 'trash-outline'
     card_remove.style.color = '#fff'
-
-
     card_title.innerText = txtTitle.value
     card_descript.innerText = txtDescript.value
 
@@ -102,7 +166,6 @@ btnCreateCard.addEventListener('click', function() {
     card.appendChild(card_section)
     card_section.appendChild(card_img)
     card_section.appendChild(card_alert)
-        //card.appendChild(card_remove)
     card.appendChild(card_play)
     card.appendChild(cardID_element)
 
@@ -115,31 +178,6 @@ btnCreateCard.addEventListener('click', function() {
     card_play.classList.add('playTask')
     cardID_element.style.fontSize = '0'
     cardID_element.style.position = 'absolute'
-
-    //eventos
-    card_remove.onclick = function(card) {
-        var cardParent = this.parentNode
-        cardParent.style.display = 'none'
-            // trashCollum.appendChild(cardParent)
-    }
-
-    card_play.onclick = function(card) {
-
-        var cardParent = this.parentNode
-        if (this.name == 'checkmark-done-circle-sharp') {
-            colunaDone.appendChild(cardParent)
-            this.style.color = 'springgreen'
-                // confetti()
-        } else {
-            colunaDoing.appendChild(cardParent)
-            this.name = 'checkmark-done-circle-sharp'
-
-        }
-
-    }
-
-
-
 
     colunaToDo.appendChild(card)
 
@@ -155,12 +193,11 @@ btnCreateCard.addEventListener('click', function() {
 
     localStorage.setItem((localStorage.length), JSON.stringify(jsonCard))
     cardID_element.innerText = localStorage.length - 1
+    window.location.reload()
 
 })
 
 function loadCards() {
-
-
 
     for (var i = 0; i < localStorage.length; i++) {
 
@@ -258,7 +295,7 @@ function loadCards() {
                 console.log(updateOBJ.col)
 
                 console.log('Card: ' + cardKey + ', agora na COL: ' + updateOBJ.col)
-
+                confetti()
 
             } else {
 

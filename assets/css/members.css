@@ -1,5 +1,6 @@
 .members {
     padding: 10px;
+    display: flex;
 }
 
 .members img {
@@ -30,17 +31,17 @@
 }
 
 .card-creator img {
-    width: 28px;
-    height: 28px;
+    width: 27px;
+    height: 27px;
     border-radius: 100%;
     position: absolute;
-    bottom: -3px;
+    bottom: -2px;
     left: 100%;
     box-shadow: 1px 1px 5px #000000;
 }
 
 .count {
-    padding: 4px;
+    padding: 4px 10px;
     background-color: #7d33fc;
     border-radius: 7px;
     margin-left: 10px;

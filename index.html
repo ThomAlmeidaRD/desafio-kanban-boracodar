@@ -17,7 +17,8 @@
     <div id="app">
         <nav>
             <h1 style="display: flex; align-items: center; justify-content: center;">
-                <ion-icon name="chevron-expand"></ion-icon>version</h1>
+                <ion-icon name="chevron-expand"></ion-icon>version
+            </h1>
 
             <ul>
                 <li>
@@ -44,6 +45,10 @@
                         <p style="color: #fff;">Crie tarefas para ganhar níveis, ranks e pontos</p>
                     </section>
                     <section class="members">
+                        <div class="progress-level">
+                            <p>1</p>
+                            <progress value="60" max="100"></progress>
+                        </div>
                         <img id="first-img" alt="avatar" />
                         <img id="user-2" alt="avatar" />
                     </section>
@@ -51,16 +56,16 @@
 
                 <section class="filter">
                     <button id="btnOpenModal">
-            <ion-icon name="add-outline"></ion-icon>
-            <span>Criar</span>
-          </button>
+                        <ion-icon name="add-outline"></ion-icon>
+                        <span>Criar</span>
+                    </button>
                     <button>
-            <ion-icon name="filter-outline"></ion-icon>
-            <span>Filtrar</span>
-          </button>
+                        <ion-icon name="filter-outline"></ion-icon>
+                        <span>Filtrar</span>
+                    </button>
                     <div class="input-wrapper">
                         <ion-icon name="search-outline"></ion-icon>
-                        <input type="text" placeholder="Busque por cards, assuntos ou responsáveis..." />
+                        <input type="text" id="txtFilter" placeholder="Busque por cards, assuntos ou responsáveis..." />
                     </div>
                 </section>
 
@@ -100,17 +105,17 @@
 
                             <p>Responsável</p>
                             <select name="" id="selectAuthor">
-                <option value="1">Thomas Almeida</option>
-                <option value="2">Matheus Rodrigues</option>
-                <option value="3">Todos</option>
-              </select>
+                                <option value="1">Thomas Almeida</option>
+                                <option value="2">Matheus Rodrigues</option>
+                                <option value="3">Todos</option>
+                            </select>
 
                             <p>Urgência</p>
                             <select name="" id="selectUrgency">
-                <option value="1">Leve</option>
-                <option value="2">Média</option>
-                <option value="3">Alta</option>
-              </select>
+                                <option value="1">Leve</option>
+                                <option value="2">Média</option>
+                                <option value="3">Alta</option>
+                            </select>
 
                             <p>Título</p>
                             <input type="text" id="txtTitle" placeholder="Título da tarefa">
