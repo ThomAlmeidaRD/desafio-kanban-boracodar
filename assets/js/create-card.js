@@ -122,22 +122,28 @@ btnFilter.addEventListener('click', function() {
 
     var cards = document.querySelectorAll('.card-creator p')
 
-    if (btnFilter.childNodes[3].textContent == 'Remover Filtros') {
-
-        btnFilter.childNodes[1].name = 'filter-outline'
-        btnFilter.childNodes[3].textContent = 'Filtrar'
-
-        for (var card of cards) {
-            var tagParent = card.parentNode
-            var cardParent = tagParent.parentNode
-            cardParent.style.display = 'block'
-        }
-
+    if (cards.length == 0) {
+        alert('Não há Tarefas')
     } else {
+        if (btnFilter.childNodes[3].textContent == 'Remover Filtros') {
 
-        modalFilterCard.style.display = 'flex'
+            btnFilter.childNodes[1].name = 'filter-outline'
+            btnFilter.childNodes[3].textContent = 'Filtrar'
 
+            for (var card of cards) {
+                var tagParent = card.parentNode
+                var cardParent = tagParent.parentNode
+                cardParent.style.display = 'block'
+            }
+
+        } else {
+
+            modalFilterCard.style.display = 'flex'
+
+        }
     }
+
+
 
 
 })
@@ -161,19 +167,35 @@ function confetti() {
     });
 }
 
-function focusFilter(option) {
-    if (option == 1) {
+function focusFilter(option, tag) {
+
+
+    if (option == 1 && tag.childNodes[0].name == 'add-outline') {
 
         focused_option = 1
+        tag.childNodes[0].name = 'checkmark-outline'
+        recoverIcon()
 
-    } else if (option == 2) {
+    } else if (option == 2 && tag.childNodes[0].name == 'add-outline') {
 
         focused_option = 2
+        tag.childNodes[0].name = 'checkmark-outline'
+        recoverIcon()
 
-    } else {
+    } else if (option == 3 && tag.childNodes[0].name == 'add-outline') {
 
         focused_option = 3
+        tag.childNodes[0].name = 'checkmark-outline'
+        recoverIcon()
+
     }
+
+    function recoverIcon() {
+        setInterval(function() {
+            tag.childNodes[0].name = 'add-outline'
+        }, 5000)
+    }
+
 }
 
 btnFilterCard.addEventListener('click', function() {
