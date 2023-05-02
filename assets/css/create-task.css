@@ -107,7 +107,7 @@ select {
     transform: scale(1.03);
 }
 
-#close-modal {
+.close-icon {
     font-size: 35px;
     position: absolute;
     right: 30px;
@@ -117,4 +117,38 @@ select {
 
 option {
     color: #000;
+}
+
+.filter-btn {
+    padding: 13px 15px !important;
+    margin: 10px;
+    margin-left: 0;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #fff !important;
+    width: 120px !important;
+    cursor: pointer;
+    background-color: transparent !important;
+}
+
+.filter-btn ion-icon {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.filter-btn:hover {
+    background-color: #fff;
+    box-shadow: 3px 2px 1px #424242e3;
+}
+
+.span-filters button:focus {
+    background-color: #7d33fc !important;
+    color: #ffffff !important;
+}
+
+.span-filters {
+    display: flex;
+    padding: 20px;
+    padding-left: 0;
 }

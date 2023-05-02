@@ -59,7 +59,7 @@
                         <ion-icon name="add-outline"></ion-icon>
                         <span>Criar</span>
                     </button>
-                    <button>
+                    <button id="btnFilter">
                         <ion-icon name="filter-outline"></ion-icon>
                         <span>Filtrar</span>
                     </button>
@@ -100,7 +100,7 @@
                     <div class="create-card-content">
 
                         <div>
-                            <ion-icon name="close-outline" id="close-modal" role="img" class="md hydrated"></ion-icon>
+                            <ion-icon name="close-outline" id="close-modal" class="close-icon" role="img" class="md hydrated"></ion-icon>
                             <h2> Criar Nova Tarefa </h2>
 
                             <p>Responsável</p>
@@ -127,6 +127,24 @@
 
                         </div>
 
+                    </div>
+                </div>
+
+                <div class="create-card-container" id="modalFilterCard">
+                    <div class="create-card-content">
+                        <div>
+                            <ion-icon name="close-outline" id="close-filter" class="close-icon" role="img" class="md hydrated"></ion-icon>
+                            <h2> Filtrar Tarefas </h2>
+
+                            <p>Filtrar por urgencia:</p>
+                            <div class="span-filters">
+                                <button class="filter-btn" onclick="focusFilter(1)"><ion-icon name="add-outline"></ion-icon><b>Leve</b></button>
+                                <button class="filter-btn" onclick="focusFilter(2)"><ion-icon name="add-outline"></ion-icon><b>Média</b></button>
+                                <button class="filter-btn" onclick="focusFilter(3)"><ion-icon name="add-outline"></ion-icon><b>Alta</b></button>
+                            </div>
+
+                            <button id="btnFilterCard">Filtrar Tarefas</button>
+                        </div>
                     </div>
                 </div>
 

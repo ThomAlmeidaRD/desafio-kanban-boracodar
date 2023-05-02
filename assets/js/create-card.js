@@ -7,10 +7,14 @@ var user_img_1 = document.getElementById('first-img')
 var user_img_2 = document.getElementById('user-2')
 
 var btnOpenModal = document.getElementById('btnOpenModal')
+var btnFilter = document.getElementById('btnFilter')
 
 var modalCreateCard = document.getElementById('modalCreateCard')
+var modalFilterCard = document.getElementById('modalFilterCard')
 var closeModal = document.getElementById('close-modal')
+var closeFilter = document.getElementById('close-filter')
 var btnCreateCard = document.getElementById('btnCreateTask')
+var btnFilterCard = document.getElementById('btnFilterCard')
 
 var txtTitle = document.getElementById('txtTitle')
 var txtDescript = document.getElementById('txtDescript')
@@ -22,6 +26,12 @@ var countDoing = document.getElementById('countDoing')
 var countDone = document.getElementById('countDone')
 
 var txtFilter = document.getElementById('txtFilter')
+
+var focused_option = 0
+var filterClick = 0
+
+
+
 txtFilter.addEventListener('input', filterCards)
 
 function filterCards() {
@@ -29,6 +39,7 @@ function filterCards() {
     var cards_in_todo = colunaToDo.querySelectorAll('.card h3')
     var cards_in_doing = colunaDoing.querySelectorAll('.card h3')
     var cards_in_done = colunaDone.querySelectorAll('.card h3')
+
 
     if (txtFilter.value != '') {
 
@@ -87,7 +98,6 @@ function filterCards() {
 }
 
 
-
 var img1 = 'https://i.pinimg.com/280x280_RS/67/84/49/678449c80dbe78adf4ad7c8d01a18e30.jpg'
 var img2 = 'https://i.pinimg.com/564x/07/d0/f8/07d0f8c0b3535422fc0b48f276b3c996.jpg'
 
@@ -108,6 +118,34 @@ closeModal.addEventListener('click', function() {
     modalCreateCard.style.display = 'none'
 })
 
+btnFilter.addEventListener('click', function() {
+
+    var cards = document.querySelectorAll('.card-creator p')
+
+    if (btnFilter.childNodes[3].textContent == 'Remover Filtros') {
+
+        btnFilter.childNodes[1].name = 'filter-outline'
+        btnFilter.childNodes[3].textContent = 'Filtrar'
+
+        for (var card of cards) {
+            var tagParent = card.parentNode
+            var cardParent = tagParent.parentNode
+            cardParent.style.display = 'block'
+        }
+
+    } else {
+
+        modalFilterCard.style.display = 'flex'
+
+    }
+
+
+})
+
+closeFilter.addEventListener('click', function() {
+    modalFilterCard.style.display = 'none'
+})
+
 function confetti() {
     function randomInRange(min, max) {
         return Math.random() * (max - min) + min;
@@ -123,6 +161,66 @@ function confetti() {
     });
 }
 
+function focusFilter(option) {
+    if (option == 1) {
+
+        focused_option = 1
+
+    } else if (option == 2) {
+
+        focused_option = 2
+
+    } else {
+
+        focused_option = 3
+    }
+}
+
+btnFilterCard.addEventListener('click', function() {
+
+    var cards = document.querySelectorAll('.card-creator p')
+
+    if (modalFilterCard.style.display == 'flex') {
+
+        if (focused_option == 1) {
+
+            for (var card of cards) {
+                if (card.classList[1] != 'leve') {
+                    var tagParent = card.parentNode
+                    var cardParent = tagParent.parentNode
+                    cardParent.style.display = 'none'
+                }
+            }
+
+        } else if (focused_option == 2) {
+
+            for (var card of cards) {
+                if (card.classList[1] != 'media') {
+                    var tagParent = card.parentNode
+                    var cardParent = tagParent.parentNode
+                    cardParent.style.display = 'none'
+                }
+            }
+
+        } else {
+
+            for (var card of cards) {
+                if (card.classList[1] != 'alta') {
+                    var tagParent = card.parentNode
+                    var cardParent = tagParent.parentNode
+                    cardParent.style.display = 'none'
+                }
+            }
+        }
+
+        btnFilter.innerHTML = `
+        <ion-icon name="close-outline" role="img" class="md hydrated"></ion-icon>
+        <span>Remover Filtros</span>`
+        modalFilterCard.style.display = 'none'
+
+    }
+
+})
 
 btnCreateCard.addEventListener('click', function() {
 
@@ -234,6 +332,7 @@ function loadCards() {
         card_remove.style.color = '#fff'
         card_remove.style.display = 'none'
         card_play.classList.add('playTask')
+        card_descript.classList.add('p-height')
         cardID_element.innerText = localStorage.key(i)
         cardID_element.style.fontSize = '0'
         cardID_element.style.position = 'absolute'
