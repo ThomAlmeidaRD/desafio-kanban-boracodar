@@ -18,6 +18,12 @@ Essa interface foi clonda diretamente da série <a href="https://www.rocketseat.
 
 <br>
 
+## ✔ O que eu mudei em relação ao projeto original?
+
+O projeto veio apenas com a interface front-end criada com o html e css, meu desafio aqui foi fazer com que realmente, fosse possível criar cards de tarefas e poder concluir cada um, mas apenas fazer isso não seria tão interessante até porque é relativamente simples no JS, meu desafio mesmo foi fazer com que os cards ficassem salvos após a criação e atualização de suas posições, daí veio um grande aprendizado no javascript principalmente usando json por exemplo. 
+
+O próximo passo é deixar o app com mais recursos de acessibilidade e usabilidade, fazer os cards abrirem como páginas por exemplo (como o Notion e Jira fazem) e outras ideias que surgirem mais a frente.
+
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
