@@ -1,5 +1,7 @@
 <h1 align="center"> version - um kanban que evolui </h1>
 
+![print]()
+
 <p align="center">
 Essa interface foi clonda diretamente da série <a href="https://www.rocketseat.com.br/boracodar">#boraCodar</a>, que são desafios semanais, promovido pela Rocketseat para ensino de tecnologias WEB. Meu foco aqui foi deixar o layout com a minha cara e design e incluir novas funcionalidades ao projeto. <br/>
 </p>
